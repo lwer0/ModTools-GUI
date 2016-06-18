@@ -6,6 +6,7 @@
 package com.lwer0.modtools.inventories;
 
 import com.lwer0.modtools.ModTools;
+import static com.lwer0.modtools.inventories.BanInventory.baninv;
 import com.lwer0.modtools.utils.ColorUtil;
 import static com.lwer0.modtools.utils.ColorUtil.color;
 import java.util.ArrayList;
@@ -34,7 +35,7 @@ public class MainInventory implements Listener {
         MainInventory.name = pname;
     }
     
-    public static Inventory maininv = Bukkit.createInventory(null, 27, ColorUtil.color("&bModTools"));    
+    public static Inventory maininv = Bukkit.createInventory(null, 27, ColorUtil.color("&2ModTools"));    
     static {
         ItemStack head = new ItemStack(Material.SKULL_ITEM, 1, (short)SkullType.PLAYER.ordinal());
         SkullMeta sm = (SkullMeta)head.getItemMeta();
@@ -42,7 +43,8 @@ public class MainInventory implements Listener {
         head.setItemMeta(sm);
         //Item 1
         List<String> list = new ArrayList<String>();
-        list.add(color("&eTest"));
+        list.add(color("&7Desde aquí puedes"));
+        list.add(color("&7manejar los baneos"));
         ItemStack ns1 = new ItemStack (Material.NETHER_STAR, 1);
         ItemMeta im1 = ns1.getItemMeta();
         im1.setDisplayName(color("&4Ban"));
@@ -65,8 +67,17 @@ public class MainInventory implements Listener {
         maininv.setItem(12, ns2);
         maininv.setItem(13, ns3);
         maininv.setItem(14, ns4);
-        maininv.setItem(15, ns5);
-        
+        maininv.setItem(15, ns5); 
+    }
+    
+    @EventHandler
+    public void InvClick (InventoryClickEvent event) {
+        Player p = (Player)event.getWhoClicked();
+        if (event.getClickedInventory().equals(maininv)) {
+            if (event.getSlot() == 11) {
+                p.openInventory(baninv);
+            }
+        }
     }
     
     public MainInventory(ModTools aThis) {
