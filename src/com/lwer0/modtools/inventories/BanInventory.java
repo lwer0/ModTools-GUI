@@ -25,7 +25,7 @@ public class BanInventory implements Listener {
     
     public static Inventory baninv = Bukkit.createInventory(null, 27, ColorUtil.color("&2ModTools - Ban"));    
     static {
-                //Item 1
+        //Item 1
         List<String> list = new ArrayList<String>();
         list.add(color("&7Desde aquí puedes"));
         list.add(color("&7manejar los baneos"));
