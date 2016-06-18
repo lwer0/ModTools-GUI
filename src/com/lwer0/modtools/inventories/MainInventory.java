@@ -5,6 +5,7 @@
  */
 package com.lwer0.modtools.inventories;
 
+import com.lwer0.modtools.ModTools;
 import com.lwer0.modtools.utils.ColorUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -25,6 +26,14 @@ public class MainInventory implements Listener {
         skull.setItemMeta(meta);
 
         maininv.setItem(4, skull);
+    }
+
+    public MainInventory(ModTools aThis) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public MainInventory() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     
