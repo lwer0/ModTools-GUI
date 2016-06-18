@@ -11,7 +11,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.inventory.Inventory;
 
 /**
  *
@@ -21,10 +20,8 @@ public class InventoryMove implements Listener {
     
     @EventHandler
     public void onInventoryClick (InventoryClickEvent event) {
-        Inventory inv = event.getClickedInventory();
         Player p = (Player)event.getWhoClicked();
-        if (inv == MainInventory.maininv) {
-            p.sendMessage("debug message");
+        if (event.getInventory().equals(MainInventory.maininv)) {
             event.setCancelled(true);
             p.updateInventory();
         }
