@@ -1,12 +1,27 @@
 package com.lwer0.modtools;
 
-public class ModTools {
+import com.lwer0.modtools.commands.mtopen;
+import com.lwer0.modtools.utils.ColorUtil;
+import org.bukkit.plugin.java.JavaPlugin;
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+public class ModTools extends JavaPlugin {
+    
+    @Override
+    public void onEnable() {
+        this.getLogger().info("ModTools enabled correctly");
+    }
+    
+    @Override
+    public void onDisable() {
+        this.getLogger().info("ModTools disabled correctly");
+    }
+    
+    public void registerCommands() {
+        this.getCommand("mt").setExecutor(new mtopen());
+    }
+    
+    public void implement() {
+        this.getServer().getPluginManager().registerEvents(new ColorUtil(this), this);
     }
     
 }
