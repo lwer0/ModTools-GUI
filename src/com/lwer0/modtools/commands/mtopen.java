@@ -8,6 +8,7 @@ package com.lwer0.modtools.commands;
 import com.lwer0.modtools.inventories.MainInventory;
 import static com.lwer0.modtools.inventories.MainInventory.maininv;
 import com.lwer0.modtools.inventories.permortemp.PermOrTempBan;
+import com.lwer0.modtools.inventories.temps.TempBansInv;
 import static com.lwer0.modtools.utils.ColorUtil.color;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -27,6 +28,8 @@ public class mtopen implements CommandExecutor {
         mainInventory.setName(args[0]);
         PermOrTempBan permortempban = new PermOrTempBan();
         permortempban.setName(args[0]);
+        TempBansInv tempbansinv = new TempBansInv();
+        tempbansinv.setName(args[0]);
         if (cmd.getName().equalsIgnoreCase("mt")) {
             if (sender.hasPermission("modtools.moderate")) {
                 if (args[0].length() == 0) {
