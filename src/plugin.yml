@@ -2,6 +2,7 @@ name: ModTools
 version: 2.0
 author: lwer0
 main: com.lwer0.modtools.ModTools
+dependency: [Essentials]
 commands:
     mt:
         description: mt
