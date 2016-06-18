@@ -10,6 +10,8 @@ public class ModTools extends JavaPlugin {
     @Override
     public void onEnable() {
         this.getLogger().info("ModTools enabled correctly");
+        registerCommands();
+        implement();
     }
     
     @Override
