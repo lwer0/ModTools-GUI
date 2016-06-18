@@ -8,7 +8,6 @@ package com.lwer0.modtools.commands;
 import com.lwer0.modtools.inventories.MainInventory;
 import static com.lwer0.modtools.inventories.MainInventory.maininv;
 import static com.lwer0.modtools.utils.ColorUtil.color;
-import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
