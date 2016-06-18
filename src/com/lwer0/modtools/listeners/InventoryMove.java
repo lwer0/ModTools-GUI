@@ -16,7 +16,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 
 /**
  *
- * @author Joel
+ * @author Joelitjyjt
  */
 public class InventoryMove implements Listener {
     
