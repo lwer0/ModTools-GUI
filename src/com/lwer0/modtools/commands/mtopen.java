@@ -22,8 +22,6 @@ public class mtopen implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        Player p = Bukkit.getServer().getPlayer(args[0]);
-        String pname = p.getName();
         Player psender = (Player) sender;
         MainInventory mainInventory = new MainInventory();
         mainInventory.setName(args[0]);
