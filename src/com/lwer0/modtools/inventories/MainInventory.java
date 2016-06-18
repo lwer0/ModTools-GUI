@@ -29,11 +29,9 @@ public class MainInventory implements Listener {
     }
 
     public MainInventory(ModTools aThis) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public MainInventory() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     
