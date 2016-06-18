@@ -8,6 +8,7 @@ package com.lwer0.modtools.inventories.permortemp;
 import com.lwer0.modtools.ModTools;
 import com.lwer0.modtools.inventories.MainInventory;
 import static com.lwer0.modtools.inventories.MainInventory.maininv;
+import static com.lwer0.modtools.inventories.temps.TempBansInv.tempbaninv;
 import com.lwer0.modtools.utils.ColorUtil;
 import static com.lwer0.modtools.utils.ColorUtil.color;
 import java.util.ArrayList;
@@ -75,7 +76,6 @@ public class PermOrTempBan implements Listener {
         ItemStack ns2 = new ItemStack (Material.FIREWORK_CHARGE, 1);
         ItemMeta im2 = ns2.getItemMeta();
         im2.setDisplayName(color("&cTemporal Ban"));
-        im2.setLore(list2);
         ns2.setItemMeta(im2);
         
         banpermortempinv.setItem(12, ns1);
@@ -90,7 +90,7 @@ public class PermOrTempBan implements Listener {
                 p2.setBanned(true);
                 p2.kickPlayer(color("&cHas sido baneado permanentemente por no respetar las normas de HideOutMC"));
             } else if (event.getSlot() == 14) {
-                p2.kickPlayer(color("&cHas sido expulsado por no respetar las normas de HideOutMC"));
+                p2.openInventory(tempbaninv);
             }
         }
     }
