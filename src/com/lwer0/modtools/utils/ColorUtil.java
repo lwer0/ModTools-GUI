@@ -20,7 +20,6 @@ public class ColorUtil implements Listener {
     }
 
     public ColorUtil(ModTools aThis) {
-        throw new UnsupportedOperationException("Error.");
     }
     
 }
