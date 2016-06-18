@@ -24,7 +24,7 @@ public class mtopen implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         Player psender = (Player) sender;
         MainInventory mainInventory = new MainInventory();
-        mainInventory.setName(args[0]);
+        mainInventory.naming(args[0]);
         if (cmd.getName().equalsIgnoreCase("mt")) {
             if (sender.hasPermission("modtools.moderate")) {
                 if (args[0].length() == 0) {
