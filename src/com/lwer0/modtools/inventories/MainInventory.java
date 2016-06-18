@@ -14,6 +14,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.inventory.meta.SkullMeta;
 
 public class MainInventory implements Listener {
     
@@ -22,16 +23,16 @@ public class MainInventory implements Listener {
     public MainInventory() {
     }
     
-    public void naming(String pname) {
+    public void setName(String pname) {
         MainInventory.name = pname;
     }
     
     public static Inventory maininv = Bukkit.createInventory(null, 27, ColorUtil.color("&bModTools"));    
     static {
-        ItemStack skull = new ItemStack(Material.SKULL_ITEM, 1);
-        ItemMeta meta = skull.getItemMeta();
-        meta.setDisplayName(name);
-        skull.setItemMeta(meta);
+        ItemStack skull = new ItemStack(Material.SKULL_ITEM, 1 , (short) 3);
+        SkullMeta smeta = (SkullMeta) skull.getItemMeta();
+        smeta.setOwner(name);
+        skull.setItemMeta(smeta);
         maininv.setItem(4, skull);
     }
     
