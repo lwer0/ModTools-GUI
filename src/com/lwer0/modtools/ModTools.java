@@ -2,6 +2,7 @@ package com.lwer0.modtools;
 
 import com.lwer0.modtools.commands.mtopen;
 import com.lwer0.modtools.inventories.MainInventory;
+import com.lwer0.modtools.listeners.InventoryMove;
 import com.lwer0.modtools.utils.ColorUtil;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -26,6 +27,7 @@ public class ModTools extends JavaPlugin {
     public void implement() {
         this.getServer().getPluginManager().registerEvents(new ColorUtil(this), this);
         this.getServer().getPluginManager().registerEvents(new MainInventory(this), this);
+        this.getServer().getPluginManager().registerEvents(new InventoryMove(this), this);
     }
     
 }
