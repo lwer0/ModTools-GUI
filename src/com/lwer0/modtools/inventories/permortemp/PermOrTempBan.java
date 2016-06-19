@@ -50,7 +50,7 @@ public class PermOrTempBan implements Listener {
                 
                     List<String> lorename = new ArrayList<String>();
                     lorename.add(color("&cJugador el cual"));
-                    lorename.add(color("&cva a ser baneado"));
+                    lorename.add(color("&cva a ser sancionado"));
  
                     String pl = players.getName();
                     ItemStack skull = new ItemStack(Material.SKULL_ITEM);
