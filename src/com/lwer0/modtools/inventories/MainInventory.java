@@ -8,8 +8,12 @@ package com.lwer0.modtools.inventories;
 import com.lwer0.modtools.ModTools;
 import static com.lwer0.modtools.inventories.BanInventory.baninv;
 import com.lwer0.modtools.inventories.permortemp.PermOrTempBan;
+import static com.lwer0.modtools.inventories.permortemp.PermOrTempMute.mutetemporperminv;
+import static com.lwer0.modtools.inventories.temps.TempMuteInv.tempmuteinv;
 import com.lwer0.modtools.utils.ColorUtil;
 import static com.lwer0.modtools.utils.ColorUtil.color;
+import static com.lwer0.modtools.utils.FreezeUtil.freeze;
+import static com.lwer0.modtools.utils.FreezeUtil.unfreeze;
 import java.util.ArrayList;
 import java.util.List;
 import net.md_5.bungee.api.ChatColor;
@@ -26,6 +30,7 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
+import org.bukkit.util.Vector;
 
 public class MainInventory implements Listener {
     
@@ -45,7 +50,7 @@ public class MainInventory implements Listener {
                 
                     List<String> lorename = new ArrayList<String>();
                     lorename.add(color("&cJugador el cual"));
-                    lorename.add(color("&cva a ser baneado"));
+                    lorename.add(color("&cva a ser sancionado"));
  
                     String pl = players.getName();
                     ItemStack skull = new ItemStack(Material.SKULL_ITEM);
@@ -80,14 +85,25 @@ public class MainInventory implements Listener {
         //Item 3
         ItemStack ns3 = new ItemStack (Material.NETHER_STAR, 1);
         ItemMeta im3 = ns1.getItemMeta();
-        im3.setDisplayName(color("&bMute"));
+        im3.setDisplayName(color("&aMute"));
         ns3.setItemMeta(im3);
         //Item 4
+        List<String> list4 = new ArrayList<String>();
+        list4.add(color("&7Congela al jugador"));
         ItemStack ns4 = new ItemStack (Material.NETHER_STAR, 1);
         ItemMeta im4 = ns1.getItemMeta();
+        im4.setLore(list4);
+        im4.setDisplayName(color("&bCongelar"));
+        ns4.setItemMeta(im4);
         //Item 5
+        List<String> list5 = new ArrayList<String>();
+        list5.add(color("&7Descongela al jugador"));
         ItemStack ns5 = new ItemStack (Material.NETHER_STAR, 1);
         ItemMeta im5 = ns1.getItemMeta();
+        im5.setDisplayName(color("&bDescongelar"));
+        im5.setLore(list5);
+        ns5.setItemMeta(im5);
+        
         maininv.setItem(11, ns1);
         maininv.setItem(12, ns2);
         maininv.setItem(13, ns3);
@@ -98,14 +114,20 @@ public class MainInventory implements Listener {
     @EventHandler
     public void InvClick (InventoryClickEvent event) {
         Player p = (Player)event.getWhoClicked();
+        Player p2 = Bukkit.getServer().getPlayer(name);
         if (event.getClickedInventory().equals(maininv)) {
             if (event.getSlot() == 11) {
                 p.openInventory(PermOrTempBan.banpermortempinv);
             } else if (event.getSlot() == 12) {
-                Player p2 = Bukkit.getServer().getPlayer(name);
                 p2.kickPlayer(color("&cHas sido expulsado por no respetar las normas de HideOutMC"));
             } else if (event.getSlot() == 13) {
-                
+                p.openInventory(mutetemporperminv);
+            } else if (event.getSlot() == 14) {
+                freeze(p2);
+                p2.sendMessage(color("&bHas sido congelado por " + p.getName()));
+            } else if (event.getSlot() == 15) {
+                unfreeze(p2);
+                p2.sendMessage(color("&bHas sido descongelado por " + p.getName()));
             }
         }
     }
