@@ -3,10 +3,13 @@ package com.lwer0.modtools;
 import com.lwer0.modtools.commands.mtopen;
 import com.lwer0.modtools.inventories.MainInventory;
 import com.lwer0.modtools.inventories.permortemp.PermOrTempBan;
+import com.lwer0.modtools.inventories.permortemp.PermOrTempMute;
 import com.lwer0.modtools.inventories.temps.TempBansInv;
+import com.lwer0.modtools.inventories.temps.TempMuteInv;
 import com.lwer0.modtools.listeners.AntiSteal;
 import com.lwer0.modtools.listeners.InventoryMove;
 import com.lwer0.modtools.utils.ColorUtil;
+import com.lwer0.modtools.utils.FreezeUtil;
 import java.io.File;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -36,6 +39,9 @@ public class ModTools extends JavaPlugin {
         this.getServer().getPluginManager().registerEvents(new PermOrTempBan(this), this);
         this.getServer().getPluginManager().registerEvents(new TempBansInv(this), this);
         this.getServer().getPluginManager().registerEvents(new AntiSteal(this), this);
+        this.getServer().getPluginManager().registerEvents(new PermOrTempMute(this), this);
+        this.getServer().getPluginManager().registerEvents(new TempMuteInv(this), this);
+        this.getServer().getPluginManager().registerEvents(new FreezeUtil(this), this);
     }
     
     public void createConfig() {
