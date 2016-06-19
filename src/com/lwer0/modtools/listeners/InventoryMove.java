@@ -9,7 +9,10 @@ import com.lwer0.modtools.ModTools;
 import com.lwer0.modtools.inventories.BanInventory;
 import com.lwer0.modtools.inventories.MainInventory;
 import com.lwer0.modtools.inventories.permortemp.PermOrTempBan;
+import static com.lwer0.modtools.inventories.permortemp.PermOrTempMute.mutetemporperminv;
 import com.lwer0.modtools.inventories.temps.TempBansInv;
+import com.lwer0.modtools.inventories.temps.TempMuteInv;
+import static com.lwer0.modtools.inventories.temps.TempMuteInv.tempmuteinv;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -24,7 +27,7 @@ public class InventoryMove implements Listener {
     @EventHandler
     public void onInventoryClick (InventoryClickEvent event) {
         Player p = (Player)event.getWhoClicked();
-        if (event.getInventory().equals(MainInventory.maininv) || event.getInventory().equals(BanInventory.baninv) || event.getInventory().equals(PermOrTempBan.banpermortempinv) || event.getInventory().equals(TempBansInv.tempbaninv)) {
+        if (event.getInventory().equals(mutetemporperminv) || event.getInventory().equals(tempmuteinv) || event.getInventory().equals(MainInventory.maininv) || event.getInventory().equals(BanInventory.baninv) || event.getInventory().equals(PermOrTempBan.banpermortempinv) || event.getInventory().equals(TempBansInv.tempbaninv)) {
             event.setCancelled(true);
             p.updateInventory();
         }
